@@ -1,6 +1,6 @@
 import DataTable, { createTheme, TableColumn } from 'react-data-table-component';
 import { Buttons } from '../Buttons';
-import { Edit } from '../Buttons/Edit';
+import { Add } from '../Buttons/Add';
 
 import './styles.module.scss';
 
@@ -41,6 +41,11 @@ export function Table() {
         borderRadius: '25px',
       }
     },
+    subHeader: {
+      style: {
+        padding: '0 3rem',
+      },
+    },
     rows: {
       style: {
         minHeight: '72px',
@@ -68,18 +73,9 @@ export function Table() {
     background: {
       default: '#1F2029',
     },
-    // context: {
-    //   background: '#cb4b16',
-    //   text: '#FFFFFF',
-    // },
-    divider: {
+      divider: {
       default: '#616480',
     },
-    // action: {
-    //   button: 'rgba(0,0,0,.54)',
-    //   hover: 'rgba(0,0,0,.08)',
-    //   disabled: 'rgba(0,0,0,.12)',
-    // },
   })
 
   return(
@@ -90,6 +86,8 @@ export function Table() {
         data={data}
         theme="dark"
         customStyles={customStyles}
+        subHeader
+        subHeaderComponent={<Add />}
       />
     </section>
   );
