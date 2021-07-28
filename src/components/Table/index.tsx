@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import DataTable, { createTheme, TableColumn } from 'react-data-table-component';
 import { Buttons } from '../Buttons';
 import { Add } from '../Buttons/Add';
+import { AddModal } from '../Modal/AddModal';
 
 import './styles.module.scss';
 
-export function Table() {
+interface TableProps {
+  toggleModal: () => void;
+}
+
+export function Table({ toggleModal }: TableProps) {
   const data = [
     { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
     { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
@@ -76,7 +82,7 @@ export function Table() {
       divider: {
       default: '#616480',
     },
-  })
+  });
 
   return(
     <section>
@@ -87,7 +93,7 @@ export function Table() {
         theme="dark"
         customStyles={customStyles}
         subHeader
-        subHeaderComponent={<Add />}
+        subHeaderComponent={<Add toggleModal={toggleModal} />}
       />
     </section>
   );

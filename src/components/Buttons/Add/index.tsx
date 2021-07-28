@@ -2,15 +2,15 @@ import { FiPlusCircle } from "react-icons/fi";
 
 import styles from './styles.module.scss';
 
-export function Add() {
-  function teste() {
-    console.log('Funcionou!!!!!!!!');
-  }
+interface AddProps {
+  toggleModal: () => void;
+}
 
+export function Add({ toggleModal }: AddProps) {
   return (
     <button
       className={styles.addButton}
-      onClick={teste}
+      onClick={toggleModal}
     >
       <FiPlusCircle /> Novo contato
     </button>

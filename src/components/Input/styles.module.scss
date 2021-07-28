@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+
+  background: #4B4D63;
+  border-radius: 8px;
+  padding: 18px 24px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.inputStyle {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  color: #b7b7cc;
+
+}
+
+.inputStyle::placeholder {
+  color: #b7b7cc;
+}
