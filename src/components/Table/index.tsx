@@ -87,7 +87,6 @@ export function Table({
   return(
     <section>
       <DataTable 
-        title="Clientes"
         columns={columns}
         data={data}
         theme="dark"

@@ -12,7 +12,7 @@ export function Add({ toggleModal }: AddProps) {
       className={styles.addButton}
       onClick={toggleModal}
     >
-      <FiPlusCircle /> Novo contato
+      <FiPlusCircle /> Novo cliente
     </button>
   );
 }
