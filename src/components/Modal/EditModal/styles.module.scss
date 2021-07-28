@@ -1,10 +1,10 @@
-.titleAddModal {
+.titleEditModal {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.buttonAddModal {
+.buttonEditModal {
   display: flex;
   width: 200px;
   height: 50px;
@@ -20,12 +20,12 @@
   transition: background-color, color .5s;
 }
 
-.buttonAddModal:hover {
+.buttonEditModal:hover {
   background: #EEEEF2;
   border: 1px solid #ED64A6;
   color: #ED64A6;
 }
 
-.svgAddModal {
+.svgEditModal {
   margin-right: 8px;
 }

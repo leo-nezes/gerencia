@@ -3,10 +3,16 @@ import { Edit } from "./Edit";
 
 import styles from'./buttons.module.scss';
 
-export function Buttons() {
+interface ButtonsProps {
+  toggleEditModal: () => void;
+}
+
+export function Buttons({ toggleEditModal }: ButtonsProps) {
   return (
     <div className={styles.buttonsContainer}>
-      <Edit />
+      <Edit 
+        toggleEditModal={toggleEditModal}
+      />
       <Delete />
     </div>
   );

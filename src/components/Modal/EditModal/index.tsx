@@ -1,33 +1,33 @@
-import { useRef } from 'react';
-import { FiUserPlus } from 'react-icons/fi';
-import { Input } from '../../Input';
+import { useRef } from "react";
+import { FiUsers } from "react-icons/fi";
 
-import { Modal } from '../index';
+import { Modal } from "../index";
+import { Input } from "../../Input";
 
 import styles from './styles.module.scss';
 
-interface AddModalProps {
+interface ModalEditFoodProps {
   isOpen: boolean;
   setIsOpen: () => void;
 }
 
-export function AddModal({ 
+export function EditModal({
   isOpen,
   setIsOpen,
-}: AddModalProps) {
+}: ModalEditFoodProps) {
   const formRef = useRef(null);
 
-  return (
+  return(
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <form ref={formRef}>
         <h1
-          className={styles.titleAddModal}
+          className={styles.titleEditModal}
         >
-          <FiUserPlus 
+          <FiUsers 
             size={30}
-            className={styles.svgAddModal}
+            className={styles.svgEditModal}
           />
-          Novo Contato
+          Editar Informações
         </h1>
         <Input 
           name="name" 
@@ -48,9 +48,9 @@ export function AddModal({
         
         <button 
           type="submit"
-          className={styles.buttonAddModal} 
+          className={styles.buttonEditModal} 
         >
-          Adicionar novo contato
+          Editar contato
         </button>
       </form>
     </Modal>

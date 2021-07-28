@@ -2,14 +2,14 @@ import { FiEdit } from 'react-icons/fi';
 
 import '../button.module.scss';
 
-export function Edit() {
-  function teste() {
-    console.log('Funcionou!!!!!!!!');
-  }
-  
+interface EditProps {
+  toggleEditModal: () => void;
+}
+
+export function Edit({ toggleEditModal }: EditProps) {
   return (
     <button
-      onClick={teste}
+      onClick={toggleEditModal}
     >
       <FiEdit />
     </button>
