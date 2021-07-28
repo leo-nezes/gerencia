@@ -1,7 +1,7 @@
 import { Delete } from "./Delete";
 import { Edit } from "./Edit";
 
-import styles from'./buttons.module.scss';
+import styles from'./styles.module.scss';
 
 interface ButtonsProps {
   toggleEditModal: () => void;

@@ -1,6 +1,6 @@
 import { FiEdit } from 'react-icons/fi';
 
-import '../button.module.scss';
+import styles from '../button.module.scss';
 
 interface EditProps {
   toggleEditModal: () => void;
@@ -9,6 +9,7 @@ interface EditProps {
 export function Edit({ toggleEditModal }: EditProps) {
   return (
     <button
+      className={styles.buttonModal}
       onClick={toggleEditModal}
     >
       <FiEdit />

@@ -2,8 +2,6 @@ import DataTable, { createTheme, TableColumn } from 'react-data-table-component'
 import { Buttons } from '../Buttons';
 import { Add } from '../Buttons/Add';
 
-import './styles.module.scss';
-
 interface TableProps {
   toggleModal: () => void;
   toggleEditModal: () => void;
@@ -89,7 +87,7 @@ export function Table({
   return(
     <section>
       <DataTable 
-        title="Contatos"
+        title="Clientes"
         columns={columns}
         data={data}
         theme="dark"

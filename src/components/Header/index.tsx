@@ -5,7 +5,7 @@ export function Header() {
     <header
       className={styles.headerContainer}
     >
-      Gerenciador de Cadastros
+      Gerenciador de Clientes
     </header>
   );
 }
