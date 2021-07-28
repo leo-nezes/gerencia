@@ -1,6 +1,16 @@
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import { Admin } from './pages/Admin';
+
+import './styles/global.scss';
+
 function App() {
   return (
-    <h1>App Page</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Admin} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
