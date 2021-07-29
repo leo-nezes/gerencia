@@ -1,14 +1,23 @@
 import { useRef } from 'react';
 import { FiUserPlus } from 'react-icons/fi';
-import { Input } from '../../Input';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { Input } from '../../Input';
 import { Modal } from '../index';
 
 import styles from './styles.module.scss';
+import { useData } from '../../../hooks/data';
 
 interface AddModalProps {
   isOpen: boolean;
   setIsOpen: () => void;
+}
+
+interface CreateClientFormData {
+  address: string;
+  birthDate: string;
+  cpf: string;
+  name: string;
 }
 
 export function AddModal({ 
@@ -16,10 +25,17 @@ export function AddModal({
   setIsOpen,
 }: AddModalProps) {
   const formRef = useRef(null);
+  const { register, handleSubmit } = useForm();
+  const { addClient } = useData();
+
+  const handleCreateClient: SubmitHandler<CreateClientFormData> = async (data) => {
+    await addClient(data);
+    setIsOpen();
+  }
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <form ref={formRef}>
+      <form ref={formRef} onSubmit={handleSubmit(handleCreateClient)}>
         <h1
           className={styles.titleAddModal}
         >
@@ -30,20 +46,20 @@ export function AddModal({
           Novo Contato
         </h1>
         <Input 
-          name="name" 
           placeholder="Nome completo"
+          { ...register("name") }
         />
         <Input 
-          name="cpf"
           placeholder="CPF"
+          { ...register("cpf") }
         />
         <Input 
-          name="birth_date"
           placeholder="Data de nascimento" 
+          { ...register("birthDate") }
         />
         <Input 
-          name="address"
           placeholder="Digite seu endereço completo"
+          { ...register("address") }
         />
         
         <button 

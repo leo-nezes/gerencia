@@ -12,7 +12,7 @@ export interface Data {
 
 interface DataContextData {
   data: Data[];
-  addClient: () => void
+  addClient: (data: Omit<Data, 'id'>) => void
   editClient: () => void
   removeClient: () => void
 }
@@ -38,7 +38,19 @@ export function DataProvider({ children }: DataProviderPops) {
     loadData();
   }, []);
 
-  function addClient() {}
+  async function addClient({ name, cpf, birthDate, address }: Omit<Data, 'id'>) {
+    const response = await api.post('clients/', { 
+      name,
+      cpf,
+      birthDate,
+      address 
+    });
+
+    const newData = [...data, response.data];
+
+    setData(newData);
+  }
+
   function editClient() {}
   function removeClient() {}
 
