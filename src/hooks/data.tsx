@@ -3,13 +3,15 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 import api from "../services/api";
 
 export interface Data {
+  id: number;
   name: string;
   cpf: string;
-  birth_date: string;
+  birthDate: string;
   address: string;
 }
 
 interface DataContextData {
+  data: Data[];
   addClient: () => void
   editClient: () => void
   removeClient: () => void
@@ -28,7 +30,9 @@ export function DataProvider({ children }: DataProviderPops) {
     async function loadData() {
       const response = await api.get('clients/list');
 
-      console.log(response.data);
+      const clients = [...response.data];
+
+      setData([...clients]);
     }
 
     loadData();
@@ -40,7 +44,7 @@ export function DataProvider({ children }: DataProviderPops) {
 
 
   return (
-    <DataContext.Provider value={{ addClient, editClient, removeClient }}>
+    <DataContext.Provider value={{ data, addClient, editClient, removeClient }}>
       {children}
     </DataContext.Provider>
   );

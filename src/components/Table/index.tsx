@@ -1,4 +1,5 @@
 import DataTable, { createTheme, TableColumn } from 'react-data-table-component';
+import { useData } from '../../hooks/data';
 import { Buttons } from '../Buttons';
 import { Add } from '../Buttons/Add';
 
@@ -11,13 +12,10 @@ export function Table({
   toggleModal, 
   toggleEditModal }: TableProps
 ) {
-  const data = [
-    { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
-    { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
-    { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
-    { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
-    { name: 'Leonardo', cpf: '11111111111', birth: '26/03/1998', address: 'Linha de endereço 1'},
-  ];
+  const { data: clientsData } = useData();
+
+
+  const data = [...clientsData];
   const columns: TableColumn[] = [
     {
       name: 'Nome',
@@ -29,7 +27,7 @@ export function Table({
     },
     {
       name: 'Nascimento',
-      selector: 'birth'
+      selector: 'birthDate'
     },
     {
       name: 'Endereço',
