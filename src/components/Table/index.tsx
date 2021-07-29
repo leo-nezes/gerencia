@@ -36,7 +36,7 @@ export function Table({
     {
       name: 'Ações',
       selector: 'actions',
-      cell: () => <Buttons toggleEditModal={toggleEditModal} />
+      cell: ({ id }) => <Buttons toggleEditModal={toggleEditModal} clientId={id} />
     }
   ];
   const customStyles = {

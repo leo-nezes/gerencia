@@ -14,7 +14,7 @@ interface DataContextData {
   data: Data[];
   addClient: (data: Omit<Data, 'id'>) => void
   editClient: () => void
-  removeClient: () => void
+  removeClient: (clientId: string) => void
 }
 
 interface DataProviderPops {
@@ -52,8 +52,14 @@ export function DataProvider({ children }: DataProviderPops) {
   }
 
   function editClient() {}
-  function removeClient() {}
 
+  async function removeClient(clientId: string) {
+    await api.delete(`delete/${clientId}`);
+
+    const newClients = data.filter(client => client.id !== Number(clientId));
+
+    setData([ ...newClients ]);
+  }
 
   return (
     <DataContext.Provider value={{ data, addClient, editClient, removeClient }}>
